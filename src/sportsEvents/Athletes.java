@@ -40,7 +40,7 @@ public class Athletes {
     	int cnt = 0, i = 1;
         try {
             String str;
-            BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\Coca\\eclipse-workplace\\Sports-Events-Java\\src\\sportsEvents\\athletes.txt"));
+            BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\Coca\\git\\Sports-Events-Java\\Sports-Events-Java\\src\\sportsEvents\\athletes.txt"));
             while ((str = reader.readLine()) != null) {
                 readAthlete(str);
                 cnt++;

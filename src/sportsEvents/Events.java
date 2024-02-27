@@ -13,6 +13,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 public class Events implements Runnable {
 
@@ -105,7 +106,7 @@ public class Events implements Runnable {
 		try {
 			String str;
 			BufferedReader reader = new BufferedReader(new FileReader(
-					"C:\\Users\\Coca\\eclipse-workplace\\Sports-Events-Java\\src\\sportsEvents\\events.txt"));
+					"C:\\Users\\Coca\\git\\Sports-Events-Java\\Sports-Events-Java\\src\\sportsEvents\\events.txt"));
 			while ((str = reader.readLine()) != null) {
 				readEvent(str, athletes, countries, sports, games);
 			}
@@ -131,18 +132,20 @@ public class Events implements Runnable {
 		int linesAth = 0, linesEve = 0;
 		try {
 			reader = new BufferedReader(new FileReader(
-					"C:\\Users\\Coca\\eclipse-workplace\\Sports-Events-Java\\src\\sportsEvents\\athletes.txt"));
+					"C:\\Users\\Coca\\git\\Sports-Events-Java\\Sports-Events-Java\\src\\sportsEvents\\athletes.txt"));
 			while (reader.readLine() != null) {
 				linesAth++;
 			}
 			reader.close();
 			reader = new BufferedReader(new FileReader(
-					"C:\\Users\\Coca\\eclipse-workplace\\Sports-Events-Java\\src\\sportsEvents\\events.txt"));
+					"C:\\Users\\Coca\\git\\Sports-Events-Java\\Sports-Events-Java\\src\\sportsEvents\\events.txt"));
 			while (reader.readLine() != null) {
 				linesEve++;
 			}
 			reader.close();
 		} catch (FileNotFoundException e1) {
+	        JOptionPane.showMessageDialog(null, e1.toString(), "InfoBox: " + "File not found", JOptionPane.INFORMATION_MESSAGE);
+	        System.exit(-1);
 		} catch (IOException io) {
 		}
 		Events mainEvents = new Events(linesEve);
@@ -152,12 +155,6 @@ public class Events implements Runnable {
 		mainEvents.athletes = new Athletes(linesAth);
 		mainEvents.events = new ArrayList<Event>(linesEve);
 		Menu menu = new Menu(mainEvents);
-//		Scanner sc = new Scanner(System.in);
-//		ArrayList<String> vectorOfStrings = new ArrayList<String>();
-//		ArrayList<Team> vectorOfTeams = new ArrayList<Team>();
-//		ArrayList<Athlete> vectorOfAthletes = new ArrayList<Athlete>();
-//		ArrayList<Pair> parovi = new ArrayList<Pair>();
-//		int isDataLoaded1 = 0, isDataLoaded2 = 0;
 		long start, end;
 		try {
 			start = System.currentTimeMillis();
@@ -179,7 +176,7 @@ public class Events implements Runnable {
 		String str;
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(
-					"C:\\Users\\Coca\\eclipse-workplace\\Sports-Events-Java\\src\\sportsEvents\\events.txt"));
+					"C:\\Users\\Coca\\git\\Sports-Events-Java\\Sports-Events-Java\\src\\sportsEvents\\events.txt"));
 			while ((str = reader.readLine()) != null) {
 				vecFileEve.add(str);
 				if ((str = reader.readLine()) == null) {
@@ -288,11 +285,9 @@ public class Events implements Runnable {
 		ArrayList<Athlete> athletes = new ArrayList<Athlete>();
 		ArrayList<Character> flags = filterData(countries, sports, input, sport, country, year, type, medal);
 		int pos = 0;
-//		int pos2 = 0;
 		String name = "Get all the athletes that competed in the pair of games";
 		for (Event eve : events) {
 			if (game1.contains(eve.getGame()) && flags.get(pos) == '0') {
-//				pos2 = 0;
 				for (Event eve2 : events) {
 					if (game2.contains(eve2.getGame()) && !eve2.equals(eve)) {
 						if (!eve.isTeam()) {
@@ -318,7 +313,6 @@ public class Events implements Runnable {
 							}
 						}
 					}
-//					pos2++;
 				}
 			}
 			pos++;
@@ -541,21 +535,11 @@ public class Events implements Runnable {
 				}
 			}
 		}
-//		int cnt = 0;
-//		for (Integer p : percentages) {
-//			if(p != 0) {
-//				cnt++;
-//			}
-//		}
-//		if(cnt == 1) {
-//			
-//		}
 		return percentages;
 	}
 
 	int getCountOfCompetitors(Countries countries, Sports sports, String input, String sport, String country, String year, int type, String medal, int pie, int xy) {
 		ArrayList<Character> flags = filterData(countries, sports, input, sport, country, year, type, medal);
-//		Scanner sc = new Scanner(System.in);
 		int n = 0, pos = 0;
 		String name = "Get all the athletes that competed in the pair of games";
 		for (Event eve : events) {
@@ -714,8 +698,8 @@ public class Events implements Runnable {
 		Events eventsArr = new Events(events2);
 		int cnt = 0;
 		Iterator<Event> i = eventsArr.events.iterator();
-		while (i.hasNext()) {
-//			Event s = i.next();
+		while (i.hasNext() && cnt < eventsArr.getSize()) {
+			i.next();
 			if (flags.get(cnt) == '1') {
 				i.remove();
 			}

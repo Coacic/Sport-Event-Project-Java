@@ -37,10 +37,14 @@ public class Menu extends Frame {
 			setModalityType(ModalityType.APPLICATION_MODAL);
 			Panel buttons = new Panel();
 			ok.addActionListener((ae) -> {
-				events.thread.interrupt();
-				events.thread2.interrupt();
-				events.thread3.interrupt();
-				events.thread4.interrupt();
+				if(events.thread != null && events.thread.isAlive())
+					events.thread.interrupt();
+				if(events.thread != null && events.thread2.isAlive())
+					events.thread2.interrupt();
+				if(events.thread != null && events.thread3.isAlive())
+					events.thread3.interrupt();
+				if(events.thread != null && events.thread4.isAlive())
+					events.thread4.interrupt();
 				System.exit(0);
 			});
 			cancel.addActionListener((ae) -> {
