@@ -137,8 +137,8 @@ public class Menu extends Frame {
 		userPanel.add(loading, CENTER_ALIGNMENT);
 		ProgressBar pb = new ProgressBar();
 		userPanel.add(pb);
-		userPanel.setBackground(Color.RED);
 		content.add(userPanel);
+		userPanel.setBackground(Color.RED);
 		Panel passPanel = new Panel();
 		button5.addActionListener((ae) -> {
 			getFields();
