@@ -105,6 +105,7 @@ public class Events implements Runnable {
 	public void readEvents(Athletes athletes, Countries countries, Sports sports, Games games) {
 		try {
 			String str;
+			//Path needs to be changed
 			BufferedReader reader = new BufferedReader(new FileReader(
 					"C:\\Users\\Coca\\git\\Sports-Events-Java\\Sports-Events-Java\\src\\sportsEvents\\events.txt"));
 			while ((str = reader.readLine()) != null) {
@@ -131,12 +132,14 @@ public class Events implements Runnable {
 		BufferedReader reader;
 		int linesAth = 0, linesEve = 0;
 		try {
+			//Path needs to be changed
 			reader = new BufferedReader(new FileReader(
 					"C:\\Users\\Coca\\git\\Sports-Events-Java\\Sports-Events-Java\\src\\sportsEvents\\athletes.txt"));
 			while (reader.readLine() != null) {
 				linesAth++;
 			}
 			reader.close();
+			//Path needs to be changed
 			reader = new BufferedReader(new FileReader(
 					"C:\\Users\\Coca\\git\\Sports-Events-Java\\Sports-Events-Java\\src\\sportsEvents\\events.txt"));
 			while (reader.readLine() != null) {
@@ -175,6 +178,7 @@ public class Events implements Runnable {
 	void readEventsMu(Athletes athletes, Countries countries, Sports sports, Games games) {
 		String str;
 		try {
+			//Path needs to be changed
 			BufferedReader reader = new BufferedReader(new FileReader(
 					"C:\\Users\\Coca\\git\\Sports-Events-Java\\Sports-Events-Java\\src\\sportsEvents\\events.txt"));
 			while ((str = reader.readLine()) != null) {
