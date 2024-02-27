@@ -136,8 +136,8 @@ public class Menu extends Frame {
 		loading.setText("Ucitavanje podataka je u toku...");
 		userPanel.add(loading, CENTER_ALIGNMENT);
 		ProgressBar pb = new ProgressBar();
-		userPanel.setBackground(Color.RED);
 		userPanel.add(pb);
+		userPanel.setBackground(Color.RED);
 		content.add(userPanel);
 		Panel passPanel = new Panel();
 		button5.addActionListener((ae) -> {

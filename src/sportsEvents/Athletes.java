@@ -39,8 +39,8 @@ public class Athletes {
     public ArrayList<Athlete> readAthletes() {
     	int cnt = 0, i = 1;
         try {
+        	String str;
             BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\Coca\\git\\Sports-Events-Java\\Sports-Events-Java\\src\\sportsEvents\\athletes.txt"));
-            String str;
             while ((str = reader.readLine()) != null) {
                 readAthlete(str);
                 cnt++;

@@ -422,8 +422,8 @@ public class Events implements Runnable {
 
 	int getNumberOfDifferentSportsForCountryThatWonAtLeastOneMedal(Countries countries, Sports sports, String input, String sport, String country, String year, int type, String medal, int pie, int xy) {
 		ArrayList<Character> flags = filterData(countries, sports, input, sport, country, year, type, medal);
-		ArrayList<String> vector = new ArrayList<String>();
 		String name = "Get the number of different sports for country that has won at least one medal";
+		ArrayList<String> vector = new ArrayList<String>();
 		int pos = 0;
 		for (Event eve : events) {
 			if (flags.get(pos) == '0' && eve.getMedal().compareTo("") != 0 && !vector.contains(eve.getSport())) {
